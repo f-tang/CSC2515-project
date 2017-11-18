@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 82, in train
+    ems_loss = calculate_ems_loss(img_ab, output)
+  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 26, in calculate_ems_loss
+    pred_size = torch.from_numpy(np.array(list(pred_size())))
+TypeError: 'torch.Size' object is not callable

@@ -1,11 +1,112 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
 import torchvision.transforms as transforms
+
 import matplotlib.pyplot as plt
-from neural_networks import nn_classification
+import numpy as np
+
+from neural_networks import nn_classification, ColorNet
+from myimgfolder import TrainImageFolder
+
+import os
+import traceback
+
+
+USE_CUDA = torch.cuda.is_available()
+
+
+def calculate_ems_loss(test_y, pred_y):
+    diff_pow = torch.pow((test_y - pred_y), 2)
+    pow_sum = diff_pow.sum()
+    pred_size = pred_y.size()
+    pred_size = torch.from_numpy(np.array(list(pred_size)))
+    size_prod = pred_size.prod()
+    res = pow_sum / size_prod
+
+    return res
+
+
+def train():
+    EPOCHS = 1
+    DATA_DIR = "../CSC2515_data/cifar/train/"
+    original_transform = transforms.Compose([
+        transforms.Scale(32),
+        transforms.RandomCrop(32),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor()
+    ])
+
+    train_set = TrainImageFolder(
+        root=DATA_DIR, transform=original_transform
+    )
+    train_set_size = len(train_set)
+    train_set_classes = train_set.classes
+    train_loader = torch.utils.data.DataLoader(
+        train_set, batch_size=32, shuffle=True, num_workers=4
+    )
+
+    color_model = ColorNet()
+    if os.path.exists('./colornet_params.pkl'):
+        color_model.load_state_dict(torch.load('colornet_params.pkl'))
+    if USE_CUDA:
+        color_model.cuda()
+    optimizer = torch.optim.Adadelta(color_model.parameters())
+
+    print("start training")
+
+    for epoch in range(EPOCHS):
+        color_model.train()
+
+        try:
+            for batch_idx, (data, classes) in enumerate(train_loader):
+                messagefile = open('./message.log', 'a')
+                original_img = data[0].unsqueeze(1).float()
+                img_ab = data[1].float()
+
+                if USE_CUDA:
+                    original_img = original_img.cuda()
+                    img_ab = img_ab.cuda()
+                    classes = classes.cuda()
+
+                original_img = Variable(original_img)
+                img_ab = Variable(img_ab)
+                classes = Variable(classes)
+
+                optimizer.zero_grad()
+
+                class_output, output = color_model(original_img, original_img)
+                ems_loss = calculate_ems_loss(img_ab, output)
+                ems_loss.backward(retain_variables=True)
+                cross_entropy_loss = 1 / 300 * F.cross_entropy(class_output, classes)
+                cross_entropy_loss.backward()
+
+                loss = ems_loss + cross_entropy_loss
+                lossmsg = 'loss: %.9f\n' % (loss.data[0])
+                messagefile.write(lossmsg)
+
+                if batch_idx % 500 == 0:
+                    message = 'Train Epoch:%d\tPercent:[%d/%d (%.0f%%)]\tLoss:%.9f\n' % (
+                        epoch, batch_idx * len(data), len(train_loader.dataset),
+                        100. * batch_idx / len(train_loader), loss.data[0])
+                    messagefile.write(message)
+                    torch.save(color_model.state_dict(), 'colornet_params.pkl')
+                messagefile.close()
+
+        except Exception:
+            print("an error occurs")
+            logfile = open('error.log', 'w')
+            logfile.write(traceback.format_exc())
+            logfile.close()
+        finally:
+            torch.save(color_model.state_dict(), 'colornet_params.pkl')
+
+        print("training finished")
+
+
 
 def train_classification():
     DATA_ROOT = "../CSC2515_data/"
@@ -72,4 +173,5 @@ def train_classification():
 
 
 if __name__ == '__main__':
-    train_classification()
+    # train_classification()
+    train()
