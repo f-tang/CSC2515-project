@@ -17,10 +17,10 @@ import matplotlib.pyplot as plt
 
 
 USE_CUDA = torch.cuda.is_available()
-BATCH_SIZE = 1
 
 
-def test():
+def test_output():
+    BATCH_SIZE = 1
     DATA_DIR = "../CSC2515_data/cifar/test/"
     scale_transform = transforms.Compose([
         transforms.Scale(32),
@@ -45,33 +45,45 @@ def test():
         color_model.cuda()
     color_model.eval()
 
-    i = 0
+    i_gray = 0
+    i_color = 0
+    i_original = 0
     count = 0
     for data, label in test_loader:
-        original_img = data[0].unsqueeze(1).float()
-        gray_name = '../CSC2515_output/gray/' + str(i) + '.jpg'
-        for img in original_img:
-            pic = img.squeeze().numpy()
-            pic = pic.astype(np.float64)
-            plt.imsave(gray_name, pic, cmap='gray')
-        w = original_img.size()[2]
-        h = original_img.size()[3]
+        gray_img = data[0].unsqueeze(1).float()
+
+        # gray_name = '../CSC2515_output/gray/' + str(i_gray) + '.jpg'
+        # for img in gray_img:
+        #     pic = img.squeeze().numpy()
+        #     pic = pic.astype(np.float64)
+        #     plt.imsave(gray_name, pic, cmap='gray')
+        #     i_gray += 1
+
+        w = gray_img.size()[2]
+        h = gray_img.size()[3]
         scale_img = data[1].unsqueeze(1).float()
         if USE_CUDA:
-            original_img, scale_img = original_img.cuda(), scale_img.cuda()
+            gray_img, scale_img = gray_img.cuda(), scale_img.cuda()
 
-        original_img, scale_img = Variable(original_img, volatile=True), Variable(scale_img)
-        pred_label, output = color_model(original_img, scale_img)
-        color_img = torch.cat((original_img, output[:, :, 0:w, 0:h]), 1)
+        gray_img, scale_img = Variable(gray_img, volatile=True), Variable(scale_img)
+        pred_label, output = color_model(gray_img, scale_img)
+        color_img = torch.cat((gray_img, output[:, :, 0:w, 0:h]), 1)
         color_img = color_img.data.cpu().numpy().transpose((0, 2, 3, 1))
         for img in color_img:
             img[:, :, 0:1] = img[:, :, 0:1] * 100
-            img[:, :, 1:3] = img[:, :, 1:3] * 128
+            img[:, :, 1:3] = img[:, :, 1:3] * 255 - 128
             img = img.astype(np.float64)
             img = lab2rgb(img)
-            color_name = '../CSC2515_output/colorimg/' + str(i) + '.jpg'
+            color_name = '../CSC2515_output/colorimg/' + str(i_color) + '.jpg'
             plt.imsave(color_name, img)
-            i += 1
+            i_color += 1
+
+        original_img = data[2].float().numpy()
+        original_name = '../CSC2515_output/groundtruth/' + str(i_original) + '.jpg'
+        for img in original_img:
+            pic = img.astype(np.float64)
+            plt.imsave(original_name, pic)
+            i_original += 1
 
         # y = label.type(torch.IntTensor).numpy().squeeze()
         # pred_y = pred_label.type(torch.IntTensor).numpy().squeeze()
@@ -81,10 +93,74 @@ def test():
         #     if pred_y[j] == y[j]:
         #         count += 1
 
-    accuracy = float(count) / float(test_set_size)
-    print("test finished, accuracy: %f" %(accuracy))
+
+def test_trainset():
+    BATCH_SIZE = 5
+    DATA_DIR = "../CSC2515_data/cifar/test/"
+    scale_transform = transforms.Compose([
+        transforms.Scale(32),
+        transforms.RandomCrop(32),
+        transforms.ToTensor()
+    ])
+    classes = ('plane', 'car', 'bird', 'cat',
+               'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
+    test_set = ValImageFolder(
+        root=DATA_DIR, transform=scale_transform)
+    test_set_size = len(test_set)
+    test_loader = torch.utils.data.DataLoader(
+        test_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=1
+    )
+
+    # (img_original, img_scale), y = iter(test_loader).next()
+
+    color_model = ColorNet()
+    color_model.load_state_dict(torch.load('colornet_params.pkl'))
+    if USE_CUDA:
+        color_model.cuda()
+    color_model.eval()
+
+    data, label = iter(test_loader).next()
+    gray_img = data[0].unsqueeze(1).float()
+
+    fig = plt.figure()
+    i = 1
+    for img in gray_img:
+        pic = img.squeeze().numpy()
+        pic = pic.astype(np.float64)
+        fig.add_subplot(3, 5, i)
+        i += 1
+        plt.imshow(pic, cmap='gray')
 
 
+    w = gray_img.size()[2]
+    h = gray_img.size()[3]
+    scale_img = data[1].unsqueeze(1).float()
+    if USE_CUDA:
+        gray_img, scale_img = gray_img.cuda(), scale_img.cuda()
+
+    gray_img, scale_img = Variable(gray_img, volatile=True), Variable(scale_img)
+    pred_label, output = color_model(gray_img, scale_img)
+    color_img = torch.cat((gray_img, output[:, :, 0:w, 0:h]), 1)
+    color_img = color_img.data.cpu().numpy().transpose((0, 2, 3, 1))
+    for img in color_img:
+        img[:, :, 0:1] = img[:, :, 0:1] * 100
+        img[:, :, 1:3] = img[:, :, 1:3] * 255 - 128
+        img = img.astype(np.float64)
+        img = lab2rgb(img)
+        fig.add_subplot(3, 5, i)
+        i += 1
+        plt.imshow(img)
+
+    original_img = data[2].float().squeeze().numpy()
+    for img in original_img:
+        # pic = img.squeeze().numpy()
+        pic = img.astype(np.float64)
+        fig.add_subplot(3, 5, i)
+        i += 1
+        plt.imshow(pic)
+
+    plt.show()
 
 
 def imshow(img):
@@ -137,4 +213,5 @@ def test_classification():
 
 if __name__ == '__main__':
     # test_classification()
-    test()
+    test_output()
+    # test_trainset()

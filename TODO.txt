@@ -1,0 +1,2 @@
+1. use train set to test, to see how it fit train set.
+2. number of classification net output

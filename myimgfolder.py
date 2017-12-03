@@ -56,10 +56,11 @@ class ValImageFolder(datasets.ImageFolder):
 
         img_scale = rgb2gray(img_scale)
         img_scale = torch.from_numpy(img_scale)
-        img_original = rgb2gray(img_original)
+        img_gray = rgb2gray(img_original)
+        img_gray = torch.from_numpy(img_gray)
         img_original = torch.from_numpy(img_original)
 
-        return (img_original, img_scale), target
+        return (img_gray, img_scale, img_original), target
 
 
 def read_data():

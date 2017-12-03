@@ -1,6 +1,10 @@
 Traceback (most recent call last):
-  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 82, in train
-    ems_loss = calculate_ems_loss(img_ab, output)
-  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 26, in calculate_ems_loss
-    pred_size = torch.from_numpy(np.array(list(pred_size())))
-TypeError: 'torch.Size' object is not callable
+  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 93, in train
+    mse_loss = mse_func(img_ab, output)
+  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\module.py", line 206, in __call__
+    result = self.forward(*input, **kwargs)
+  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 22, in forward
+    _assert_no_grad(target)
+  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 11, in _assert_no_grad
+    "nn criterions don't compute the gradient w.r.t. targets - please " \
+AssertionError: nn criterions don't compute the gradient w.r.t. targets - please mark these variables as volatile or not requiring gradients

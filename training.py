@@ -14,12 +14,13 @@ from myimgfolder import TrainImageFolder
 
 import os
 import traceback
+import time
 
 
 USE_CUDA = torch.cuda.is_available()
 
 
-def calculate_ems_loss(test_y, pred_y):
+def calculate_mse_loss(test_y, pred_y):
     diff_pow = torch.pow((test_y - pred_y), 2)
     pow_sum = diff_pow.sum()
     pred_size = pred_y.size()
@@ -31,7 +32,9 @@ def calculate_ems_loss(test_y, pred_y):
 
 
 def train():
-    EPOCHS = 1
+    LR = 0.00001
+    EPOCHS = 3
+    BATCH_SIZE = 32
     DATA_DIR = "../CSC2515_data/cifar/train/"
     original_transform = transforms.Compose([
         transforms.Scale(32),
@@ -46,19 +49,26 @@ def train():
     train_set_size = len(train_set)
     train_set_classes = train_set.classes
     train_loader = torch.utils.data.DataLoader(
-        train_set, batch_size=32, shuffle=True, num_workers=4
+        train_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=4
     )
+
+    # DEBUG:
+    (img_gray, img_lab), y = iter(train_loader).next()
+    img_gray = img_gray.numpy()
+    img_lab = img_lab.numpy()
 
     color_model = ColorNet()
     if os.path.exists('./colornet_params.pkl'):
         color_model.load_state_dict(torch.load('colornet_params.pkl'))
     if USE_CUDA:
         color_model.cuda()
-    optimizer = torch.optim.Adadelta(color_model.parameters())
+    optimizer = torch.optim.Adadelta(color_model.parameters(), lr=LR)
 
     print("start training")
 
+    train_time = 0
     for epoch in range(EPOCHS):
+        start_time = int(round(time.time()))
         color_model.train()
 
         try:
@@ -79,19 +89,23 @@ def train():
                 optimizer.zero_grad()
 
                 class_output, output = color_model(original_img, original_img)
-                ems_loss = calculate_ems_loss(img_ab, output)
-                ems_loss.backward(retain_variables=True)
+                # mse_func = nn.MSELoss()
+                mse_loss = calculate_mse_loss(img_ab, output)
+                mse_loss.backward(retain_variables=True)
                 cross_entropy_loss = 1 / 300 * F.cross_entropy(class_output, classes)
                 cross_entropy_loss.backward()
 
-                loss = ems_loss + cross_entropy_loss
+                optimizer.step()
+
+                loss = mse_loss + cross_entropy_loss
                 lossmsg = 'loss: %.9f\n' % (loss.data[0])
                 messagefile.write(lossmsg)
 
                 if batch_idx % 500 == 0:
                     message = 'Train Epoch:%d\tPercent:[%d/%d (%.0f%%)]\tLoss:%.9f\n' % (
-                        epoch, batch_idx * len(data), len(train_loader.dataset),
+                        epoch, batch_idx * BATCH_SIZE, len(train_loader.dataset),
                         100. * batch_idx / len(train_loader), loss.data[0])
+                    print(message)
                     messagefile.write(message)
                     torch.save(color_model.state_dict(), 'colornet_params.pkl')
                 messagefile.close()
@@ -104,14 +118,25 @@ def train():
         finally:
             torch.save(color_model.state_dict(), 'colornet_params.pkl')
 
-        print("training finished")
+        end_time = int(round(time.time()))
+        time_interval = end_time - start_time
+        print("train time for epoch %d: %d" % (epoch, time_interval))
+        print("training speed: %f s/pic"
+                          % (time_interval/len(train_loader.dataset)))
+        messagefile = open('./message.log', 'a')
+        messagefile.write("train time for epoch %d: %d" %(epoch, time_interval))
+        messagefile.write("training speed: %f s/pic"
+                          %(time_interval/len(train_loader.dataset)))
+        messagefile.close()
+
+    print("training finished")
 
 
 
 def train_classification():
     DATA_ROOT = "../CSC2515_data/"
     BATCH_SIZE = 4
-    LR = 0.001
+    LR = 0.0001
     MOMENTUM = 0.9
     EPOCH = 2
     transform = transforms.Compose(
