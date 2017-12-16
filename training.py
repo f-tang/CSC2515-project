@@ -98,7 +98,7 @@ def train():
                 # sl1_func = nn.SmoothL1Loss()
                 # sl1_loss = sl1_func(output, img_ab)
                 # sl1_loss.backward(retain_variables=True)
-                cross_entropy_loss = 0.001 * F.cross_entropy(class_output, classes)
+                cross_entropy_loss = 1/300 * F.cross_entropy(class_output, classes)
                 cross_entropy_loss.backward()
 
                 optimizer.step()
