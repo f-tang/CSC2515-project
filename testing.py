@@ -78,12 +78,12 @@ def test_output():
             plt.imsave(color_name, img)
             i_color += 1
 
-        original_img = data[2].float().numpy()
-        original_name = '../CSC2515_output/groundtruth/' + str(i_original) + '.jpg'
-        for img in original_img:
-            pic = img.astype(np.float64)
-            plt.imsave(original_name, pic)
-            i_original += 1
+        # original_img = data[2].float().numpy()
+        # original_name = '../CSC2515_output/groundtruth/' + str(i_original) + '.jpg'
+        # for img in original_img:
+        #     pic = img.astype(np.float64)
+        #     plt.imsave(original_name, pic)
+        #     i_original += 1
 
         # y = label.type(torch.IntTensor).numpy().squeeze()
         # pred_y = pred_label.type(torch.IntTensor).numpy().squeeze()

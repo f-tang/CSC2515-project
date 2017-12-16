@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0b9ec49-09ca-469f-9aef-95bff1fe5156" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nn_classification.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nn_classification_params.pkl" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/error.log" afterPath="$PROJECT_DIR$/error.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/message.log" afterPath="$PROJECT_DIR$/message.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myimgfolder.py" afterPath="$PROJECT_DIR$/myimgfolder.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing.py" afterPath="$PROJECT_DIR$/testing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/training.py" afterPath="$PROJECT_DIR$/training.py" />
     </list>
@@ -21,8 +22,8 @@
       <file leaf-file-name="training.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/training.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="123" column="35" lean-forward="false" selection-start-line="123" selection-start-column="35" selection-end-line="123" selection-end-column="35" />
+            <state relative-caret-position="414">
+              <caret line="107" column="34" lean-forward="false" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -30,23 +31,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GAN_tut.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../pytorch_tut/GAN_tut.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-828">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testing.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="207">
+              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="neural_networks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/neural_networks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3588">
+              <caret line="159" column="40" lean-forward="false" selection-start-line="159" selection-start-column="40" selection-end-line="159" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GAN_tut.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../pytorch_tut/GAN_tut.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -57,7 +70,7 @@
       <file leaf-file-name="val.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/reference code/colorNet-pytorch-master/colorNet-pytorch-master/val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-138">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -81,18 +94,8 @@
       <file leaf-file-name="cnn_pytorch_gpu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../pytorch_tut/cnn_pytorch_gpu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
+            <state relative-caret-position="2047">
               <caret line="94" column="57" lean-forward="false" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_classification.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_classification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="205" column="36" lean-forward="true" selection-start-line="205" selection-start-column="36" selection-end-line="205" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -101,8 +104,8 @@
       <file leaf-file-name="myimgfolder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myimgfolder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+            <state relative-caret-position="1196">
+              <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -110,13 +113,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="neural_networks.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/neural_networks.py">
+      <file leaf-file-name="chrominance.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics/chrominance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-211">
-              <caret line="122" column="48" lean-forward="false" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
+            <state relative-caret-position="115">
+              <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,15 +156,15 @@
         <option value="$PROJECT_DIR$/myimgfolder.py" />
         <option value="$PROJECT_DIR$/neural_networks.py" />
         <option value="$PROJECT_DIR$/testing.py" />
+        <option value="D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics/chrominance.py" />
         <option value="$PROJECT_DIR$/training.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="823" />
-    <option name="y" value="54" />
-    <option name="width" value="1080" />
-    <option name="height" value="914" />
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -179,6 +182,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -191,12 +195,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/assignment3/code" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -210,7 +213,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.training">
+  <component name="RunManager" selected="Python.testing">
     <configuration name="Nosetests for testing.test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -224,21 +227,6 @@
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;testing.test&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Nosetests for testing.test_classification" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSC2515_project" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testing.test_classification&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration name="Nosetests in testing.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
@@ -255,6 +243,23 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/testing.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration name="chrominance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSC2515_project" />
+      <option name="SCRIPT_NAME" value="D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics/chrominance.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <configuration name="testing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -292,18 +297,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.training" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test_classification" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in testing.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.testing" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in testing.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.testing" />
+      <item index="4" class="java.lang.String" itemvalue="Python.chrominance" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.training" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testing" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in testing.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test_classification" />
+        <item index="0" class="java.lang.String" itemvalue="Python.testing" />
+        <item index="1" class="java.lang.String" itemvalue="Python.training" />
+        <item index="2" class="java.lang.String" itemvalue="Python.chrominance" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests for testing.test" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in testing.py" />
       </list>
     </recent_temporary>
   </component>
@@ -358,14 +363,14 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32456142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32456142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39692983" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4926931" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -405,29 +410,17 @@
           <line>81</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics/chrominance.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="45" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pytorch_tut/test_pytorch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../pytorch_tut/cnn_pytorch_gpu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1728">
@@ -649,7 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7084">
           <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -674,21 +666,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="205" column="36" lean-forward="true" selection-start-line="205" selection-start-column="36" selection-end-line="205" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Anaconda3/pkgs/pytorch-0.1.12-py36_0.1.12cu80/Lib/site-packages/torch/functional.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,31 +677,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16596">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pytorch_tut/cnn_pytorch_gpu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="94" column="57" lean-forward="false" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myimgfolder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/reference code/colorNet-pytorch-master/colorNet-pytorch-master/val.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -738,40 +700,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_networks.py">
+    <entry file="file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/assignment3/code/q1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-211">
-          <caret line="122" column="48" lean-forward="false" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing.py">
+    <entry file="file://$PROJECT_DIR$/myimgfolder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="1196">
+          <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="123" column="35" lean-forward="false" selection-start-line="123" selection-start-column="35" selection-end-line="123" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../pytorch_tut/GAN_tut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-828">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="205" column="36" lean-forward="false" selection-start-line="205" selection-start-column="36" selection-end-line="205" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pytorch_tut/cnn_pytorch_gpu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2047">
+          <caret line="94" column="57" lean-forward="false" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neural_networks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3588">
+          <caret line="159" column="40" lean-forward="false" selection-start-line="159" selection-start-column="40" selection-end-line="159" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/大学课程/MENG课程/CSC2515 Introduction to Machine Learning/project/report/pics/chrominance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="107" column="34" lean-forward="false" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

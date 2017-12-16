@@ -1,10 +1,10 @@
 Traceback (most recent call last):
-  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 93, in train
-    mse_loss = mse_func(img_ab, output)
+  File "D:/Anaconda/WorkSpace/CSC2515_project/training.py", line 99, in train
+    nll_loss = nll_func(output, img_ab)
   File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\module.py", line 206, in __call__
     result = self.forward(*input, **kwargs)
-  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 22, in forward
-    _assert_no_grad(target)
-  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 11, in _assert_no_grad
-    "nn criterions don't compute the gradient w.r.t. targets - please " \
-AssertionError: nn criterions don't compute the gradient w.r.t. targets - please mark these variables as volatile or not requiring gradients
+  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 36, in forward
+    return backend_fn(self.size_average, weight=self.weight)(input, target)
+  File "D:\Anaconda\Anaconda3\lib\site-packages\torch\nn\_functions\thnn\auto.py", line 41, in forward
+    output, *self.additional_args)
+TypeError: CudaSpatialClassNLLCriterion_updateOutput received an invalid combination of arguments - got (int, torch.cuda.FloatTensor, !torch.cuda.FloatTensor!, torch.cuda.FloatTensor, bool, NoneType, torch.cuda.FloatTensor), but expected (int state, torch.cuda.FloatTensor input, torch.cuda.LongTensor target, torch.cuda.FloatTensor output, bool sizeAverage, [torch.cuda.FloatTensor weights or None], torch.cuda.FloatTensor total_weight)

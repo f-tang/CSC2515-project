@@ -32,8 +32,8 @@ def calculate_mse_loss(test_y, pred_y):
 
 
 def train():
-    LR = 0.00001
-    EPOCHS = 3
+    LR = 1.0
+    EPOCHS = 6
     BATCH_SIZE = 32
     DATA_DIR = "../CSC2515_data/cifar/train/"
     original_transform = transforms.Compose([
@@ -62,7 +62,7 @@ def train():
         color_model.load_state_dict(torch.load('colornet_params.pkl'))
     if USE_CUDA:
         color_model.cuda()
-    optimizer = torch.optim.Adadelta(color_model.parameters(), lr=LR)
+    optimizer = torch.optim.Adadelta(color_model.parameters())
 
     print("start training")
 
@@ -92,12 +92,18 @@ def train():
                 # mse_func = nn.MSELoss()
                 mse_loss = calculate_mse_loss(img_ab, output)
                 mse_loss.backward(retain_variables=True)
-                cross_entropy_loss = 1 / 300 * F.cross_entropy(class_output, classes)
+                # l1_func = nn.L1Loss()
+                # l1_loss = l1_func(output, img_ab)
+                # l1_loss.backward(retain_variables=True)
+                # sl1_func = nn.SmoothL1Loss()
+                # sl1_loss = sl1_func(output, img_ab)
+                # sl1_loss.backward(retain_variables=True)
+                cross_entropy_loss = 0.001 * F.cross_entropy(class_output, classes)
                 cross_entropy_loss.backward()
 
                 optimizer.step()
 
-                loss = mse_loss + cross_entropy_loss
+                loss = mse_loss.data[0] + cross_entropy_loss
                 lossmsg = 'loss: %.9f\n' % (loss.data[0])
                 messagefile.write(lossmsg)
 
@@ -124,8 +130,8 @@ def train():
         print("training speed: %f s/pic"
                           % (time_interval/len(train_loader.dataset)))
         messagefile = open('./message.log', 'a')
-        messagefile.write("train time for epoch %d: %d" %(epoch, time_interval))
-        messagefile.write("training speed: %f s/pic"
+        messagefile.write("train time for epoch %d: %d\n" %(epoch, time_interval))
+        messagefile.write("training speed: %f s/pic\n"
                           %(time_interval/len(train_loader.dataset)))
         messagefile.close()
 
